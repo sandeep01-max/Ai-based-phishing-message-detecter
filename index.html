@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Secure Messaging</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>🔐 AI Secure Messaging</h1>
+
+<div class="chat-container">
+
+    {% if message %}
+    <div class="message received">
+        <p><strong>From:</strong> {{ sender }}</p>
+        <p>{{ message }}</p>
+
+        <span class="status">{{ result }}</span>
+
+        <p class="risk">📍 Sender Risk: {{ risk }}</p>
+
+        {% if patterns %}
+        <p class="pattern">⚠️ Threat patterns detected from security database</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <form method="POST">
+        <input type="text" name="sender" placeholder="Enter sender number..." required>
+        <input type="text" name="message" placeholder="Type message..." required>
+        <button type="submit">Scan</button>
+    </form>
+
+</div>
+
+</body>
+</html>
